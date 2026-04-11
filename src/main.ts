@@ -8,9 +8,9 @@ async function main() {
     process.stdout.write("\x1Bc");
 
     try {
-        // await chapterOne();
+        await chapterOne();
 
-        // await chapterTransition("ACT II", "The Iron Cloud Monastery");
+        await chapterTransition("ACT II", "The Iron Cloud Monastery");
 
         await chapterTwo();
     } catch (err) {

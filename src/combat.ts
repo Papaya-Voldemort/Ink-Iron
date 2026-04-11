@@ -195,7 +195,7 @@ export async function initiateCombat(player: Combatant, enemy: Combatant): Promi
         if (enemy.hp <= 0) break;
 
         // ENEMY TURN
-        const enemyDamage = Math.max(1, enemy.strength - player.defense + Math.random() * 5);
+        const enemyDamage = Math.round(Math.max(1, enemy.strength - player.defense + Math.random() * 5));
         player.hp -= enemyDamage;
 
         const enemyMsg = `${enemy.name} hits for ${enemyDamage}.`;
