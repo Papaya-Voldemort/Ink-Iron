@@ -1,6 +1,6 @@
 {
   "name": "wuxia-cli",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A Wuxia-inspired terminal RPG built with Bun + TypeScript",
   "type": "module",
   "main": "src/main.ts",
@@ -8,10 +8,11 @@
     "start": "bun run src/main.ts",
     "dev": "bun --watch src/main.ts",
     "check": "tsc --noEmit",
-    "build:all": "mkdir -p builds/$npm_package_version && bun run build:linux && bun run build:windows && bun run build:macos",
-    "build:linux": "bun build --compile --target=bun-linux-x64 ./src/main.ts --outfile builds/$npm_package_version/ink-and-iron-v$npm_package_version-linux",
-    "build:windows": "bun build --compile --target=bun-windows-x64 ./src/main.ts --outfile builds/$npm_package_version/ink-and-iron-v$npm_package_version-windows.exe",
-    "build:macos": "bun build --compile --target=bun-macos-arm64 ./src/main.ts --outfile builds/$npm_package_version/ink-and-iron-v$npm_package_version-macos-arm64"
+    "build:all": "mkdir -p builds/$npm_package_version && bun run build:linux && bun run build:windows && bun run build:macos && bun run build:zip",
+    "build:linux": "bun build --compile --target=bun-linux-x64 ./src/main.ts --outfile builds/$npm_package_version/ink-and-iron-linux",
+    "build:windows": "bun build --compile --target=bun-windows-x64 ./src/main.ts --outfile builds/$npm_package_version/ink-and-iron-windows.exe",
+    "build:macos": "bun build --compile --target=bun-macos-arm64 ./src/main.ts --outfile builds/$npm_package_version/ink-and-iron-macos",
+    "build:zip": "cd builds/$npm_package_version && zip -r ink-and-iron-v$npm_package_version-all.zip *"
   },
   "dependencies": {
     "chalk": "^5.3.0",
