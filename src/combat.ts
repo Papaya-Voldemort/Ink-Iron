@@ -1,4 +1,4 @@
-import { typeWriter, player, sleep, question, menuChoice, choice } from "./lib";
+import { typeWriter, player, sleep, question, menuChoice, choice, TypingProfile } from "./lib";
 
 export interface Combatant {
     name: string;
@@ -63,7 +63,7 @@ export async function combatMenu(
 
             line += ")";
 
-            await typeWriter(line, 10);
+            await typeWriter(line, TypingProfile.COMBAT);
         }
 
         const input = (await question("> ")).trim();
@@ -190,7 +190,7 @@ export async function initiateCombat(player: Combatant, enemy: Combatant): Promi
         
         const playerMsg = `${player.name} used ${move.name} for ${damage} damage.`;
         combatLog.push(playerMsg);
-        await typeWriter(playerMsg, 20);
+        await typeWriter(playerMsg, TypingProfile.COMBAT);
 
         if (enemy.hp <= 0) break;
 
@@ -200,7 +200,7 @@ export async function initiateCombat(player: Combatant, enemy: Combatant): Promi
 
         const enemyMsg = `${enemy.name} hits for ${enemyDamage}.`;
         combatLog.push(enemyMsg);
-        await typeWriter(enemyMsg, 20);
+        await typeWriter(enemyMsg, TypingProfile.COMBAT);
     }
 
     const winner = player.hp > 0 ? player : enemy;
@@ -263,7 +263,7 @@ export async function initiateBossCombat(player: Combatant, boss: Combatant, mov
         
         const playerMsg = `${player.name} used ${move.name} for ${damage} damage.`;
         combatLog.push(playerMsg);
-        await typeWriter(playerMsg, 20);
+        await typeWriter(playerMsg, TypingProfile.COMBAT);
 
         if (boss.hp <= 0) break;
 
@@ -291,7 +291,7 @@ export async function initiateBossCombat(player: Combatant, boss: Combatant, mov
             : `${boss.name} used ${bossMove.name} for ${bossDamage} damage.`;
 
         combatLog.push(bossMsg);
-        await typeWriter(bossMsg, 20);
+        await typeWriter(bossMsg, TypingProfile.COMBAT);
     }
 
     const winner = player.hp > 0 ? player : boss;
