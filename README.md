@@ -1,4 +1,4 @@
-# wuxia-cli
+# Ink-Iron
 Ink & Iron is a TS terminal-based, choice-driven RPG set in a supernatural reimagining of the Song Dynasty. Players take on the role of a time-traveler who arrives in 11th-century China carrying the Dragon Seal, a relic capable of binding or releasing ancient evil spirits.
 
 ## Current Content
@@ -24,4 +24,3 @@ bun run build:all
 ```
 
 This project was created using `bun init` in bun v1.3.11. [Bun](https://bun.com) is a fast all-in-one JavaScript runtime.
-# Ink-Iron
